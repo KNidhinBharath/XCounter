@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Counter: {value}</p>
+        <p>Count: {value}</p>
         <div>
           <button 
           onClick={handleAdd}
