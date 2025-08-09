@@ -1,14 +1,10 @@
 
-import { useEffect, useRef, useState } from 'react';
+import {useState } from 'react';
 import './App.css';
 
 function App() {
   const [value ,setValue] = useState(0)
-  let prevValue = useRef(0)
-
-  useEffect(() => {
-    prevValue.current = value
-  },[value])
+  
 
   function handleAdd() {
 
