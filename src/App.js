@@ -1,22 +1,43 @@
-import logo from './logo.svg';
+
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [value ,setValue] = useState(0)
+  let prevValue = useRef(0)
+
+  useEffect(() => {
+    prevValue.current = value
+  },[value])
+
+  function handleAdd() {
+
+    setValue((prev) => prev+1)
+    
+
+  }
+
+  function handleDec() {
+
+    setValue((prev) => prev-1)
+    
+    
+  }
+
+ 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Counter: {value}</p>
+        <div>
+          <button 
+          onClick={handleAdd}
+          name='Increment'>Increment</button>
+          <button 
+          onClick={handleDec}
+          name='Decrement'>Decrement</button>
+        </div>
+       
       </header>
     </div>
   );
